@@ -1,0 +1,40 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+// Definindo paletas usando o novo padrão (MDC-based)
+$primary-palette: mat.m2-define-palette(mat.$m2-indigo-palette);
+$accent-palette: mat.m2-define-palette(mat.$m2-pink-palette);
+$warn-palette: mat.m2-define-palette(mat.$m2-red-palette);
+
+// Definindo o tema claro (light theme)
+$theme: mat.m2-define-light-theme((
+        color: (
+                primary: $primary-palette,
+                accent: $accent-palette,
+                warn: $warn-palette,
+        )
+));
+
+// Incluindo o tema para todos os componentes do Angular Material
+@include mat.all-component-themes($theme);
+
+// Personalização adicional para botões
+:root {
+  @include mat.button-overrides((
+          filled-container-color: orange,
+          filled-label-text-color: red,
+  ));
+}

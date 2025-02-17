@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  // TypeScript
   title = 'progetto';
   eta : number = 10;
   esiste : boolean = false;
@@ -14,6 +16,8 @@ export class AppComponent {
   nomiArray : string[] = [];
 
   ngOnInit() {
+
+    // TypeScript
     this.title = 'progetto';
     this.eta = 20;
     this.esiste = false
